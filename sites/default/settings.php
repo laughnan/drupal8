@@ -283,7 +283,7 @@ $config_directories = array();
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'h7QrtUBcWoMg3Mf2HyVmJWwJNTU-bYHMORp9NoU16R8uB17pPc8SH0xxzb4VaT17McOy2iMK9A';
+$settings['hash_salt'] = '8ZjteUpfYisJoLNIyZ7hx5yk_sDXxP2PVUdZrCqHl5ct_qN4kCrTwkCsNMyG8CgsV4fq70Tqpw';
 
 /**
  * Deployment identifier.
@@ -692,6 +692,9 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+$settings['trusted_host_patterns'] = array(
+  '^d8training\.dionysus\.dev$',
+);
 
 /**
  * Load local development override configuration, if available.
@@ -717,4 +720,4 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_uKcKki0KnCpYtfaHr5TnWJenxOTtpY5FPrvrxnsAwahYldkQyuMUqwMoY97EBNwtsQ_4V9Ms9Q/sync';
+$config_directories['sync'] = 'sites/default/files/config_7QzgPU2CR6b3PTSPcTBJIIpFh9yba1JI7e4v-7f-UNj3zeAhIiS7c1o7Jxf7q5TPyM1Dz_sz3w/sync';

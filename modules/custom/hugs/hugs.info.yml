@@ -1,0 +1,5 @@
+name: Hugs
+type: module
+description: Examples of Hugs
+core: 8.x
+package: Alex Laughnan
