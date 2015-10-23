@@ -8,6 +8,8 @@
 namespace Drupal\hugs\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\hugs\HugTracker;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class HugsController.
@@ -15,6 +17,19 @@ use Drupal\Core\Controller\ControllerBase;
  * @package Drupal\hugs\Controller
  */
 class HugsController extends ControllerBase {
+  protected $hugTracker;
+
+  public function __construct(HugTracker $tracker) {
+    $this->hugTracker = $tracker;
+  }
+
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('hugs.hug_tracker')
+    );
+  }
+
+
   /**
    * Hug.
    *
@@ -28,6 +43,9 @@ class HugsController extends ControllerBase {
     if ($from == "") {
       $from = $this->config('hugs.hugconfig')->get('default_from');
     }
+
+    $this->hugTracker->addHug($to);
+
     return [
       '#theme' => 'hug_page',
       '#to' => $to,
