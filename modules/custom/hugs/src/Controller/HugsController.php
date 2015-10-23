@@ -21,11 +21,18 @@ class HugsController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function hug($from, $to) {
+  public function hug($from, $to, $count) {
+    if (!$count) {
+      $count = $this->config('hugs.hugconfig')->get('count');
+    }
+    if ($from == "") {
+      $from = $this->config('hugs.hugconfig')->get('default_from');
+    }
     return [
       '#theme' => 'hug_page',
       '#to' => $to,
       '#from' => $from,
+      '#count' => $count,
     ];
   }
 }
