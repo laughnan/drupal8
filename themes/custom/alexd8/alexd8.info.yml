@@ -1,0 +1,20 @@
+name: alexd8
+type: theme
+description: Alex Laughnan Drupal 8
+package: Laughnan
+core: 8.x
+libraries:
+  - alexd8/global-styling
+
+base theme: 
+
+regions:
+  header_top: Header Top
+  header: Header
+  navigation: Navigation
+  content: Content
+  sidebar_left: Sidebar Left
+  sidebar_right: Sidebar Right
+  footer: Footer
+  footer_bottom: Footer Bottom
+  highlight: Highlight
