@@ -22,7 +22,7 @@ class HugConfigForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'hugs.hugconfig_config'
+      'hugs.hugconfig'
     ];
   }
 
@@ -37,12 +37,20 @@ class HugConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('hugs.hugconfig_config');
+    $config = $this->config('hugs.hugconfig');
     $form['count'] = array(
       '#type' => 'number',
       '#title' => $this->t('Count'),
       '#description' => $this->t('Default hug count'),
       '#default_value' => $config->get('count'),
+    );
+
+    $form['default_from'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Default From'),
+      '#description' => $this->t('Default from first name'),
+      '#default_value' => $config->get('default_from'),
+      '#size' => 30,
     );
 
     return parent::buildForm($form, $form_state);
@@ -61,8 +69,9 @@ class HugConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $this->config('hugs.hugconfig_config')
+    $this->config('hugs.hugconfig')
       ->set('count', $form_state->getValue('count'))
+      ->set('default_from', $form_state->getValue('default_from'))
       ->save();
   }
 
