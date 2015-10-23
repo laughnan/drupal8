@@ -4,3 +4,4 @@
 .idea/workspace.xml
 sites/*/files/*
 sites/*/settings.php
+.idea/webroot.iml
