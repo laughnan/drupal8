@@ -1,0 +1,6 @@
+# Drupal Git Ignore
+.idea/*
+.idea/vcs.xml
+.idea/workspace.xml
+sites/*/files/*
+sites/*/settings.php
