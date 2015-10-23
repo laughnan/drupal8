@@ -23,9 +23,9 @@ class HugsController extends ControllerBase {
    */
   public function hug($from, $to) {
     return [
-        '#type' => 'markup',
-        '#markup' => $this->t('Implement method: hug with parameter(s): $from, $to')
+      '#theme' => 'hug_page',
+      '#to' => $to,
+      '#from' => $from,
     ];
   }
-
 }
